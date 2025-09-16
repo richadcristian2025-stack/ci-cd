@@ -1,16 +1,17 @@
 name: Build and publish image to Docker Hub
+
 on:
-    [workflow_dispatch]
+  [workflow_dispatch]
 
 jobs:
-    publish_images:
-       runs-on: ubuntu-latest
-       steps:
-        - name: checkout
-          uses: actions/checkout@v4
-        - name: build image
-          run: docker build ./astro -t richadcristian/docker:latest
-        - name: push image to docker hub
-          run:
-            docker login -u richadcristian -p ${{secrets.DOCKER_HUB_TOKEN}}
-            docker push richadcristian/docker:latest
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build image
+        run: docker build ./astro -t richachristian/docker:latest
+      - name: push image to docker hub
+        run: |
+          docker login -u richachristian -p ${{secrets.DOCKER_HUB_TOKEN}}
+          docker push richachristian/docker:latest
