@@ -9,7 +9,7 @@ jobs:
         - name: checkout
           uses: actions/checkout@v4
         - name: build image
-          run: docker build -t richadcristian/docker:latest .
+          run: docker build ./astro -t richadcristian/docker:latest
         - name: push image to docker hub
           run:
             docker login -u richadcristian -p ${{secrets.DOCKER_HUB_TOKEN}}
