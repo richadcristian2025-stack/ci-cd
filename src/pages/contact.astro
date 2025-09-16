@@ -1,0 +1,471 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact - Richad's Blog" description="Get in touch with Richad about mathematics, questions, or collaboration">
+	<section class="contact-hero">
+		<div class="hero-content">
+			<h1 class="hero-title">Let's Connect!</h1>
+			<p class="hero-description">
+				Have a math question, want to discuss a problem, or just say hello? 
+				I'd love to hear from you and connect with fellow math enthusiasts!
+			</p>
+		</div>
+	</section>
+
+	<section class="contact-content">
+		<div class="contact-container">
+			<div class="contact-grid">
+				<div class="contact-info">
+					<h2>Get In Touch</h2>
+					<p>
+						As a young mathematician, I'm always excited to connect with others who share 
+						my passion for learning and problem-solving. Whether you're a student, teacher, 
+						or just someone curious about math, I'd love to hear from you!
+					</p>
+
+					<div class="contact-methods">
+						<div class="contact-method">
+							<div class="method-icon">📧</div>
+							<div class="method-info">
+								<h3>Email</h3>
+								<p>richad.math@example.com</p>
+								<span class="method-note">Best for detailed questions or discussions</span>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<div class="method-icon">💬</div>
+							<div class="method-info">
+								<h3>Math Forums</h3>
+								<p>Find me on various math discussion forums</p>
+								<span class="method-note">Great for collaborative problem-solving</span>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<div class="method-icon">📚</div>
+							<div class="method-info">
+								<h3>Study Groups</h3>
+								<p>Local math study sessions</p>
+								<span class="method-note">In-person collaboration when possible</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="response-info">
+						<h3>Response Time</h3>
+						<p>
+							I typically respond within 24-48 hours. Please be patient as I balance 
+							my studies with blog writing and responding to messages!
+						</p>
+					</div>
+				</div>
+
+				<div class="contact-form-section">
+					<form class="contact-form" action="#" method="POST">
+						<h2>Send a Message</h2>
+						
+						<div class="form-group">
+							<label for="name">Your Name</label>
+							<input type="text" id="name" name="name" required>
+						</div>
+
+						<div class="form-group">
+							<label for="email">Your Email</label>
+							<input type="email" id="email" name="email" required>
+						</div>
+
+						<div class="form-group">
+							<label for="subject">Subject</label>
+							<select id="subject" name="subject" required>
+								<option value="">Choose a topic...</option>
+								<option value="math-question">Math Question</option>
+								<option value="study-help">Study Help</option>
+								<option value="blog-feedback">Blog Feedback</option>
+								<option value="collaboration">Collaboration</option>
+								<option value="general">General Inquiry</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="message">Your Message</label>
+							<textarea id="message" name="message" rows="6" required placeholder="Tell me about your math question, feedback, or just say hello!"></textarea>
+						</div>
+
+						<button type="submit" class="submit-btn">Send Message</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="faq-section">
+		<div class="faq-container">
+			<h2 class="section-title">Frequently Asked Questions</h2>
+			<div class="faq-grid">
+				<div class="faq-item">
+					<h3>Can you help me with my homework?</h3>
+					<p>
+						While I can't do your homework for you, I'm happy to help explain concepts, 
+						guide you through problem-solving strategies, and point you in the right direction!
+					</p>
+				</div>
+
+				<div class="faq-item">
+					<h3>What math topics do you cover?</h3>
+					<p>
+						I focus primarily on algebra, geometry, pre-calculus, and some basic calculus. 
+						I also enjoy number theory and mathematical problem-solving techniques.
+					</p>
+				</div>
+
+				<div class="faq-item">
+					<h3>Do you offer tutoring?</h3>
+					<p>
+						Currently, I focus on sharing knowledge through my blog. However, I'm always 
+						open to study group collaborations and peer-to-peer learning opportunities.
+					</p>
+				</div>
+
+				<div class="faq-item">
+					<h3>How did you get interested in math?</h3>
+					<p>
+						Great question! I started getting really interested in math around age 11 when 
+						I discovered how elegant and logical mathematical solutions could be. Check out 
+						my About page for more details!
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="connect-section">
+		<div class="connect-container">
+			<h2>Other Ways to Connect</h2>
+			<div class="connect-cards">
+				<div class="connect-card">
+					<div class="connect-icon">📝</div>
+					<h3>Subscribe to Updates</h3>
+					<p>Get notified when I publish new blog posts about mathematics and learning.</p>
+					<button class="connect-btn">Subscribe</button>
+				</div>
+
+				<div class="connect-card">
+					<div class="connect-icon">🤝</div>
+					<h3>Join Study Groups</h3>
+					<p>Connect with other young mathematicians for collaborative learning sessions.</p>
+					<button class="connect-btn">Learn More</button>
+				</div>
+
+				<div class="connect-card">
+					<div class="connect-icon">💡</div>
+					<h3>Suggest Topics</h3>
+					<p>Have a math topic you'd like me to write about? Let me know your suggestions!</p>
+					<button class="connect-btn">Suggest</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.contact-hero {
+		padding: 4rem 0;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: 20px;
+		margin-bottom: 4rem;
+		text-align: center;
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 700;
+		color: white;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		color: rgba(255, 255, 255, 0.8);
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.7;
+	}
+
+	.contact-content {
+		margin-bottom: 4rem;
+	}
+
+	.contact-container, .faq-container, .connect-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.contact-info h2 {
+		font-size: 2rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 1.5rem;
+	}
+
+	.contact-info p {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.7;
+		margin-bottom: 2rem;
+	}
+
+	.contact-methods {
+		margin-bottom: 3rem;
+	}
+
+	.contact-method {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 15px;
+	}
+
+	.method-icon {
+		font-size: 2rem;
+		flex-shrink: 0;
+	}
+
+	.method-info h3 {
+		color: white;
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.method-info p {
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 0.5rem;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.method-note {
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.9rem;
+		font-style: italic;
+	}
+
+	.response-info {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 1.5rem;
+		border-radius: 15px;
+	}
+
+	.response-info h3 {
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.response-info p {
+		margin: 0;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.contact-form-section {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2.5rem;
+		border-radius: 20px;
+	}
+
+	.contact-form h2 {
+		color: white;
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	.form-group label {
+		display: block;
+		color: white;
+		font-weight: 500;
+		margin-bottom: 0.5rem;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 1rem;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 10px;
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+		font-size: 1rem;
+		transition: border-color 0.3s ease;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #feca57;
+	}
+
+	.form-group input::placeholder,
+	.form-group textarea::placeholder {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.submit-btn {
+		width: 100%;
+		padding: 1rem 2rem;
+		background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+		color: white;
+		border: none;
+		border-radius: 50px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: transform 0.3s ease;
+	}
+
+	.submit-btn:hover {
+		transform: translateY(-2px);
+	}
+
+	.faq-section {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: white;
+	}
+
+	.faq-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.faq-item {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		border-radius: 20px;
+	}
+
+	.faq-item h3 {
+		color: white;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+
+	.faq-item p {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.connect-section {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: 20px;
+		padding: 4rem 2rem;
+	}
+
+	.connect-container h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: white;
+	}
+
+	.connect-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.connect-card {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 2rem;
+		border-radius: 20px;
+		text-align: center;
+		transition: transform 0.3s ease;
+	}
+
+	.connect-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.connect-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.connect-card h3 {
+		color: white;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+
+	.connect-card p {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+	}
+
+	.connect-btn {
+		padding: 0.8rem 1.5rem;
+		background: rgba(255, 255, 255, 0.2);
+		color: white;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-radius: 25px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.connect-btn:hover {
+		background: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.contact-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.contact-form-section {
+			padding: 2rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.connect-section {
+			padding: 3rem 1rem;
+		}
+	}
+</style>

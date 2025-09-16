@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="25.6" fill="url(#grad)"/>
+  <text x="50%" y="50%" font-family="Inter, Arial, sans-serif" font-size="51.2" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="central">R</text>
+  <circle cx="102.4" cy="25.6" r="6.4" fill="#feca57" opacity="0.8"/>
+  <text x="102.4" y="108.8" font-family="Arial, sans-serif" font-size="12.8" fill="white" text-anchor="middle" opacity="0.7">∫π</text>
+</svg>

@@ -1,0 +1,415 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Understanding Quadratic Equations - Richad's Blog" description="A comprehensive guide to solving quadratic equations using different methods">
+	<article class="blog-post">
+		<header class="post-header">
+			<div class="post-meta">
+				<span class="post-category">Algebra</span>
+				<span class="post-date">December 10, 2024</span>
+			</div>
+			<h1 class="post-title">Understanding Quadratic Equations</h1>
+			<p class="post-subtitle">A comprehensive guide to solving quadratic equations using different methods</p>
+			<div class="post-tags">
+				<span class="tag">Quadratics</span>
+				<span class="tag">Problem Solving</span>
+				<span class="tag">Algebra</span>
+			</div>
+		</header>
+
+		<div class="post-content">
+			<section class="content-section">
+				<h2>What is a Quadratic Equation?</h2>
+				<p>
+					A quadratic equation is a polynomial equation of degree 2, which means the highest power of the variable is 2. 
+					The standard form of a quadratic equation is:
+				</p>
+				<div class="equation-block">
+					<code>ax² + bx + c = 0</code>
+				</div>
+				<p>
+					Where <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> are constants, and <strong>a ≠ 0</strong>. 
+					If a = 0, then the equation becomes linear, not quadratic!
+				</p>
+			</section>
+
+			<section class="content-section">
+				<h2>Method 1: Factoring</h2>
+				<p>
+					Factoring is often the quickest method when the quadratic can be easily factored. Let's look at an example:
+				</p>
+				<div class="example-box">
+					<h3>Example: x² + 5x + 6 = 0</h3>
+					<div class="solution-steps">
+						<div class="step">
+							<strong>Step 1:</strong> Find two numbers that multiply to give 6 and add to give 5.
+							<br>Those numbers are 2 and 3 (since 2 × 3 = 6 and 2 + 3 = 5).
+						</div>
+						<div class="step">
+							<strong>Step 2:</strong> Factor the equation: (x + 2)(x + 3) = 0
+						</div>
+						<div class="step">
+							<strong>Step 3:</strong> Set each factor equal to zero:
+							<br>x + 2 = 0  →  x = -2
+							<br>x + 3 = 0  →  x = -3
+						</div>
+						<div class="step">
+							<strong>Solution:</strong> x = -2 or x = -3
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>Method 2: Completing the Square</h2>
+				<p>
+					This method involves manipulating the equation to create a perfect square trinomial. 
+					It's especially useful when factoring isn't straightforward.
+				</p>
+				<div class="example-box">
+					<h3>Example: x² + 6x + 5 = 0</h3>
+					<div class="solution-steps">
+						<div class="step">
+							<strong>Step 1:</strong> Move the constant to the right side: x² + 6x = -5
+						</div>
+						<div class="step">
+							<strong>Step 2:</strong> Take half of the coefficient of x and square it: (6/2)² = 9
+						</div>
+						<div class="step">
+							<strong>Step 3:</strong> Add this to both sides: x² + 6x + 9 = -5 + 9 = 4
+						</div>
+						<div class="step">
+							<strong>Step 4:</strong> Factor the left side: (x + 3)² = 4
+						</div>
+						<div class="step">
+							<strong>Step 5:</strong> Take the square root: x + 3 = ±2
+						</div>
+						<div class="step">
+							<strong>Solution:</strong> x = -3 + 2 = -1 or x = -3 - 2 = -5
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>Method 3: The Quadratic Formula</h2>
+				<p>
+					The quadratic formula is the most reliable method and works for any quadratic equation. 
+					It's derived from completing the square on the general form:
+				</p>
+				<div class="equation-block">
+					<code>x = (-b ± √(b² - 4ac)) / (2a)</code>
+				</div>
+				<div class="example-box">
+					<h3>Example: 2x² + 7x + 3 = 0</h3>
+					<div class="solution-steps">
+						<div class="step">
+							<strong>Step 1:</strong> Identify a = 2, b = 7, c = 3
+						</div>
+						<div class="step">
+							<strong>Step 2:</strong> Calculate the discriminant: b² - 4ac = 49 - 24 = 25
+						</div>
+						<div class="step">
+							<strong>Step 3:</strong> Apply the formula:
+							<br>x = (-7 ± √25) / (2×2) = (-7 ± 5) / 4
+						</div>
+						<div class="step">
+							<strong>Solution:</strong> x = (-7 + 5)/4 = -1/2 or x = (-7 - 5)/4 = -3
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>The Discriminant: What It Tells Us</h2>
+				<p>
+					The discriminant (b² - 4ac) tells us about the nature of the solutions:
+				</p>
+				<ul class="info-list">
+					<li><strong>If b² - 4ac > 0:</strong> Two distinct real solutions</li>
+					<li><strong>If b² - 4ac = 0:</strong> One repeated real solution</li>
+					<li><strong>If b² - 4ac < 0:</strong> No real solutions (two complex solutions)</li>
+				</ul>
+			</section>
+
+			<section class="content-section">
+				<h2>When to Use Each Method</h2>
+				<div class="method-guide">
+					<div class="method-card">
+						<h3>Factoring</h3>
+						<p>Use when the equation factors easily. Quick and elegant when it works!</p>
+					</div>
+					<div class="method-card">
+						<h3>Completing the Square</h3>
+						<p>Great for understanding the vertex form and when you need exact answers.</p>
+					</div>
+					<div class="method-card">
+						<h3>Quadratic Formula</h3>
+						<p>Always works! Use when other methods are difficult or impossible.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>Practice Problems</h2>
+				<p>Try solving these quadratic equations using different methods:</p>
+				<ol class="practice-list">
+					<li>x² - 4x + 3 = 0</li>
+					<li>x² + 8x + 16 = 0</li>
+					<li>3x² - 2x - 1 = 0</li>
+					<li>x² + 2x + 5 = 0</li>
+				</ol>
+				<p class="practice-note">
+					<strong>Hint:</strong> Try factoring first, then use other methods if needed. 
+					Check your answers by substituting back into the original equation!
+				</p>
+			</section>
+		</div>
+
+		<footer class="post-footer">
+			<div class="post-navigation">
+				<a href="/blog" class="nav-link">← Back to Blog</a>
+				<a href="/blog/prime-numbers" class="nav-link">Next Post: Prime Numbers →</a>
+			</div>
+		</footer>
+	</article>
+</Layout>
+
+<style>
+	.blog-post {
+		max-width: 800px;
+		margin: 0 auto;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: 20px;
+		padding: 3rem;
+	}
+
+	.post-header {
+		text-align: center;
+		margin-bottom: 3rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.post-meta {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.post-category {
+		background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	.post-date {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.post-title {
+		font-size: 3rem;
+		font-weight: 700;
+		color: white;
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+
+	.post-subtitle {
+		font-size: 1.2rem;
+		color: rgba(255, 255, 255, 0.8);
+		margin-bottom: 1.5rem;
+	}
+
+	.post-tags {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.tag {
+		background: rgba(255, 255, 255, 0.2);
+		color: rgba(255, 255, 255, 0.9);
+		padding: 0.3rem 0.8rem;
+		border-radius: 15px;
+		font-size: 0.8rem;
+	}
+
+	.post-content {
+		line-height: 1.8;
+	}
+
+	.content-section {
+		margin-bottom: 3rem;
+	}
+
+	.content-section h2 {
+		font-size: 2rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 1.5rem;
+	}
+
+	.content-section p {
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 1.5rem;
+	}
+
+	.equation-block {
+		background: rgba(0, 0, 0, 0.3);
+		padding: 1.5rem;
+		border-radius: 10px;
+		text-align: center;
+		margin: 2rem 0;
+	}
+
+	.equation-block code {
+		font-size: 1.3rem;
+		color: #feca57;
+		font-weight: 600;
+	}
+
+	.example-box {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 2rem;
+		border-radius: 15px;
+		margin: 2rem 0;
+		border-left: 4px solid #feca57;
+	}
+
+	.example-box h3 {
+		color: white;
+		font-size: 1.3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.solution-steps {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.step {
+		color: rgba(255, 255, 255, 0.9);
+		padding: 1rem;
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 8px;
+	}
+
+	.info-list {
+		color: rgba(255, 255, 255, 0.9);
+		padding-left: 1.5rem;
+	}
+
+	.info-list li {
+		margin-bottom: 0.8rem;
+	}
+
+	.method-guide {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+		margin: 2rem 0;
+	}
+
+	.method-card {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 1.5rem;
+		border-radius: 15px;
+		text-align: center;
+	}
+
+	.method-card h3 {
+		color: white;
+		font-size: 1.2rem;
+		margin-bottom: 1rem;
+	}
+
+	.method-card p {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	.practice-list {
+		color: rgba(255, 255, 255, 0.9);
+		padding-left: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.practice-list li {
+		margin-bottom: 0.8rem;
+		font-family: 'Courier New', monospace;
+		font-size: 1.1rem;
+	}
+
+	.practice-note {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 1rem;
+		border-radius: 10px;
+		font-style: italic;
+	}
+
+	.post-footer {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.post-navigation {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.nav-link {
+		color: #feca57;
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.3s ease;
+	}
+
+	.nav-link:hover {
+		color: #ff6b6b;
+	}
+
+	@media (max-width: 768px) {
+		.blog-post {
+			padding: 2rem;
+			margin: 1rem;
+		}
+
+		.post-title {
+			font-size: 2.2rem;
+		}
+
+		.post-meta {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.method-guide {
+			grid-template-columns: 1fr;
+		}
+
+		.post-navigation {
+			flex-direction: column;
+			gap: 1rem;
+			text-align: center;
+		}
+
+		.content-section h2 {
+			font-size: 1.6rem;
+		}
+	}
+</style>

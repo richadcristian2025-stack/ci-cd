@@ -1,0 +1,890 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample blog posts data
+const posts = [
+  {
+    title: 'Understanding Limits in Calculus',
+    date: 'September 13, 2025',
+    excerpt: 'My exploration of limits and how they form the foundation of calculus. Understanding the concept of approaching a value without necessarily reaching it.',
+    category: 'Calculus',
+    tags: ['limits', 'foundations', 'concepts'],
+    slug: 'understanding-limits',
+    readTime: '5 min read',
+    image: '/images/math1.jpg'
+  },
+  {
+    title: 'Solving Limit Problems',
+    date: 'September 10, 2025',
+    excerpt: 'Step-by-step walkthrough of solving different types of limit problems, including indeterminate forms and L\'Hôpital\'s rule.',
+    category: 'Calculus',
+    tags: ['limits', 'problems', 'solutions'],
+    slug: 'solving-limits',
+    readTime: '7 min read',
+    image: '/images/math2.jpg'
+  },
+  {
+    title: 'Introduction to Derivatives',
+    date: 'September 5, 2025',
+    excerpt: 'Exploring the concept of derivatives and their applications in finding rates of change and tangent lines.',
+    category: 'Calculus',
+    tags: ['derivatives', 'concepts'],
+    slug: 'introduction-to-derivatives',
+    readTime: '6 min read',
+    image: '/images/math3.jpg'
+  }
+];
+---
+
+<!-- Add AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Add Anime.js and AOS scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    // Initialize AOS
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+    }
+
+    // Hero animation
+    if (typeof anime !== 'undefined') {
+      // Title animation
+      anime({
+        targets: '#main-title',
+        translateY: [50, 0],
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 1000
+      });
+
+      // Subtitle animation
+      anime({
+        targets: '#subtitle',
+        translateY: [20, 0],
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 1000,
+        delay: 300
+      });
+
+      // CTA buttons animation
+      anime({
+        targets: '.cta-buttons',
+        scale: [0.9, 1],
+        opacity: [0, 1],
+        easing: 'spring(1, 80, 10, 0)',
+        delay: 600
+      });
+
+      // Floating animation for hero image
+      anime({
+        targets: '#hero-image',
+        translateY: ['-10px', '10px'],
+        easing: 'easeInOutSine',
+        duration: 3000,
+        direction: 'alternate',
+        loop: true
+      });
+    }
+  });
+</script>
+
+<Layout title="Blog - Richard's Math Journey" description="My journey through calculus and mathematics">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex justify-between items-center mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Blog</h1>
+        <p class="text-gray-600 dark:text-gray-400">My journey through calculus and mathematics</p>
+      </div>
+      <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+        <i data-feather="plus" class="w-4 h-4 mr-2"></i>
+        New Post
+      </button>
+    </div>
+
+    <div class="space-y-6">
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <h2 class="section-title">Why Choose ICONA?</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up">
+          <div class="feature-icon">📚</div>
+          <h3>Comprehensive Materials</h3>
+          <p>Access a wide range of educational resources and study materials.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon">👩‍🏫</div>
+          <h3>Expert Instructors</h3>
+          <p>Learn from experienced educators passionate about your success.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon">💡</div>
+          <h3>Interactive Learning</h3>
+          <p>Engage with interactive content and collaborative tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="materials" id="materials">
+      <h2 class="section-title">Course Materials</h2>
+      <div class="materials-grid">
+        <!-- Material cards will be dynamically loaded here -->
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <div class="about-text" data-aos="fade-right">
+          <h2>About ICONA Class</h2>
+          <p>ICONA Class is a leading educational platform dedicated to providing high-quality learning resources for students of all ages. Our mission is to make education accessible, engaging, and effective through innovative teaching methods and technology.</p>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Courses</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image" data-aos="fade-left">
+          <img src="/images/classroom-illustration.svg" alt="ICONA Class Learning" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <h2 class="section-title">ICONA Blog</h2>
+        <p class="section-subtitle">Stay updated with the latest news, tutorials, and insights</p>
+        
+        <div class="blog-grid">
+          {posts.map(post => (
+            <article class="post-card">
+              <div class="post-header">
+                <span class="post-category">{post.category}</span>
+                <span class="post-date">{post.date}</span>
+              </div>
+              <h3 class="post-title">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h3>
+              <p class="post-excerpt">{post.excerpt}</p>
+              <div class="post-tags">
+                {post.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+              <a href={`/blog/${post.slug}`} class="read-more">Read More →</a>
+            </article>
+          ))}
+        </div>
+        
+        <div class="blog-cta">
+          <h3>Want to stay updated?</h3>
+          <p>Subscribe to our newsletter for the latest posts and updates.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your email address" 
+              required
+              class="form-input"
+            >
+            <button type="submit" class="btn primary">
+              Subscribe
+            </button>
+          </form>
+          <div class="form-message" id="formMessage"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#materials">Materials</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:info@iconaclass.com">info@iconaclass.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+1234567890">(123) 456-7890</a></p>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City, 10101</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+          <div class="social-links">
+            <a href="https://facebook.com/iconaclass" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/iconaclass" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com/iconaclass" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com/iconaclass" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Newsletter Subscription -->
+        <div class="footer-section">
+          <h3>Stay Updated</h3>
+          <p>Subscribe to our newsletter for the latest updates and resources.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <div class="form-group">
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Your email address" 
+                required
+                class="form-input"
+              >
+              <button type="submit" class="btn primary">
+                <i class="fas fa-paper-plane"></i> Subscribe
+              </button>
+            </div>
+            <div class="form-message" id="formMessage"></div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 ICONA Class. All rights reserved. | 
+          <a href="/privacy">Privacy Policy</a> | 
+          <a href="/terms">Terms of Service</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Mobile Navigation Toggle -->
+  <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <span class="hamburger"></span>
+  </button>
+</Layout>
+
+<!-- Add Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+  :root {
+    --primary: #4a6cf7;
+    --primary-dark: #3a5bd9;
+    --secondary: #6c757d;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gradient: linear-gradient(135deg, var(--primary), #6a11cb);
+  }
+
+  /* Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: #f8fafc;
+  }
+
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .highlight {
+    color: var(--primary);
+    -webkit-text-fill-color: var(--primary);
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .btn.primary {
+    background: var(--primary);
+    color: white;
+  }
+
+  .btn.primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 108, 247, 0.2);
+  }
+
+  .btn.secondary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .btn.secondary:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+    }
+  }
+
+  .blog {
+    padding: 5rem 0;
+    background: #f8f9fa;
+  }
+  
+  .blog .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section-subtitle {
+    color: var(--secondary);
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #eee;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.15);
+  }
+  
+  .post-header {
+    padding: 1.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .post-category {
+    background: var(--primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .post-date {
+    color: var(--secondary);
+    font-size: 0.875rem;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+    margin: 0 1.5rem 1rem;
+    line-height: 1.4;
+  }
+  
+  .post-title a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .post-title a:hover {
+    color: var(--primary);
+  }
+  
+  .post-excerpt {
+    color: var(--secondary);
+    margin: 0 1.5rem 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 1.5rem 1.5rem;
+  }
+  
+  .tag {
+    background: #f0f4ff;
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .read-more {
+    display: inline-block;
+    margin: 0 1.5rem 1.5rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .read-more:hover {
+    color: var(--primary-dark);
+    transform: translateX(5px);
+  }
+  
+  .blog-cta {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .blog-cta h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+  
+  .blog-cta p {
+    color: var(--secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.post-category {
+		background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	.post-date {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+	}
+
+	.post-title {
+		margin-bottom: 1.5rem;
+	}
+
+	.post-title a {
+		color: white;
+		text-decoration: none;
+		font-size: 1.5rem;
+		font-weight: 600;
+		transition: color 0.3s ease;
+	}
+
+	.post-title a:hover {
+		color: #feca57;
+	}
+
+	.post-excerpt {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+		flex-grow: 1;
+	}
+
+	.post-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.tag {
+		background: rgba(255, 255, 255, 0.2);
+		color: rgba(255, 255, 255, 0.9);
+		padding: 0.3rem 0.8rem;
+		border-radius: 15px;
+		font-size: 0.8rem;
+	}
+
+	.read-more {
+		color: #4ecdc4;
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.3s ease;
+		align-self: flex-start;
+	}
+
+	.read-more:hover {
+		color: #ff6b6b;
+	}
+
+	.blog-categories {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: white;
+	}
+
+	.categories-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.category-card {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		border-radius: 20px;
+		text-align: center;
+		text-decoration: none;
+		transition: transform 0.3s ease;
+		color: white;
+	}
+
+	.category-card:hover {
+		transform: translateY(-5px);
+		color: white;
+	}
+
+	.category-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.category-card h3 {
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	.category-card p {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-description {
+			font-size: 1.1rem;
+		}
+
+		.posts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.post-card.featured {
+			grid-column: 1;
+		}
+
+		.post-card {
+			padding: 2rem;
+		}
+
+		.post-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+	}
+
+  .mobile-nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    border: none;
+    border-radius: 4px;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hamburger {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: white;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before {
+    transform: translateY(-8px);
+  }
+  
+  .hamburger::after {
+    transform: translateY(8px);
+  }
+  
+  /* Mobile Navigation Active State */
+  .mobile-nav-toggle.active .hamburger {
+    background: transparent;
+  }
+  
+  .mobile-nav-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+  }
+  
+  .mobile-nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+  }
+  
+  @media (max-width: 768px) {
+    .back-to-top {
+      width: 45px;
+      height: 45px;
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+    
+    .mobile-nav-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  // Back to Top Functionality
+  const backToTopBtn = document.getElementById('backToTop') as HTMLButtonElement | null;
+  const mobileNavToggle = document.getElementById('mobileNavToggle') as HTMLButtonElement | null;
+  const mainNav = document.querySelector('nav') as HTMLElement | null;
+  
+  function toggleBackToTop() {
+    if (!backToTopBtn) return;
+    
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+  
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' as ScrollBehavior
+    });
+  }
+  
+  // Mobile Navigation Toggle
+  function toggleMobileMenu() {
+    if (!mobileNavToggle || !mainNav) return;
+    
+    const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+    mobileNavToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileNavToggle.classList.toggle('active');
+    document.body.classList.toggle('nav-open');
+    
+    if (mainNav) {
+      mainNav.style.display = isExpanded ? 'none' : 'block';
+    }
+  }
+  
+  // Newsletter form submission
+  document.addEventListener('astro:page-load', () => {
+    // Back to Top Event Listeners
+    if (backToTopBtn) {
+      window.addEventListener('scroll', toggleBackToTop);
+      backToTopBtn.addEventListener('click', scrollToTop);
+      // Initial check
+      toggleBackToTop();
+    }
+    
+    // Mobile Navigation Event Listener
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', toggleMobileMenu);
+    }
+    const form = document.getElementById('newsletterForm') as HTMLFormElement | null;
+    if (form) {
+      form.addEventListener('submit', async (e: SubmitEvent) => {
+        e.preventDefault();
+        if (!(e.target instanceof HTMLFormElement)) return;
+        
+        const formData = new FormData(e.target);
+        const email = formData.get('email') as string | null;
+        const messageEl = document.getElementById('formMessage');
+        
+        if (!messageEl) return;
+        
+        // Simple email validation
+        if (!email || !email.includes('@')) {
+          messageEl.textContent = 'Please enter a valid email address';
+          messageEl.className = 'form-message error';
+          return;
+        }
+        
+        try {
+          // Here you would typically send the data to your server
+          // For now, we'll just show a success message
+          messageEl.textContent = 'Thank you for subscribing!';
+          messageEl.className = 'form-message success';
+          e.target.reset();
+          
+          // Clear success message after 5 seconds
+          setTimeout(() => {
+            if (messageEl) {
+              messageEl.textContent = '';
+              messageEl.className = 'form-message';
+            }
+          }, 5000);
+          
+        } catch (error) {
+          if (messageEl) {
+            messageEl.textContent = 'An error occurred. Please try again later.';
+            messageEl.className = 'form-message error';
+          }
+          console.error('Newsletter subscription error:', error);
+        }
+      });
+    }
+  });
+</script>

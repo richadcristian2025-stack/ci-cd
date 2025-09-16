@@ -1,0 +1,435 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Richad's Blog" description="Learn more about Richad, a 14-year-old mathematics enthusiast">
+	<section class="about-hero">
+		<div class="about-content">
+			<div class="profile-section">
+				<div class="profile-image">
+					<div class="avatar">
+						<span class="avatar-text">R</span>
+					</div>
+				</div>
+				<div class="profile-info">
+					<h1 class="profile-name">Richad</h1>
+					<p class="profile-tagline">14-year-old Mathematics Enthusiast</p>
+					<div class="profile-stats">
+						<div class="stat">
+							<span class="stat-number">14</span>
+							<span class="stat-label">Years Old</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">3+</span>
+							<span class="stat-label">Years Learning</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">50+</span>
+							<span class="stat-label">Problems Solved</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-details">
+		<div class="details-container">
+			<div class="details-grid">
+				<div class="detail-card">
+					<h2>My Story</h2>
+					<p>
+						Hi! I'm Richad, a 14-year-old student with an insatiable curiosity for mathematics. 
+						My journey with math began when I was 11, and since then, I've been captivated by 
+						the beauty and logic of mathematical concepts.
+					</p>
+					<p>
+						What started as simple arithmetic has evolved into a deep appreciation for algebra, 
+						geometry, and even early calculus concepts. I believe that mathematics is not just 
+						about numbers and formulas—it's about problem-solving, logical thinking, and 
+						discovering patterns in the world around us.
+					</p>
+				</div>
+
+				<div class="detail-card">
+					<h2>What I'm Learning</h2>
+					<div class="learning-list">
+						<div class="learning-item">
+							<span class="learning-icon">📐</span>
+							<div>
+								<h3>Algebra & Functions</h3>
+								<p>Exploring quadratic equations, polynomials, and function transformations</p>
+							</div>
+						</div>
+						<div class="learning-item">
+							<span class="learning-icon">📊</span>
+							<div>
+								<h3>Geometry & Trigonometry</h3>
+								<p>Understanding shapes, angles, and the relationships between them</p>
+							</div>
+						</div>
+						<div class="learning-item">
+							<span class="learning-icon">∫</span>
+							<div>
+								<h3>Pre-Calculus</h3>
+								<p>Building foundations for limits, derivatives, and integrals</p>
+							</div>
+						</div>
+						<div class="learning-item">
+							<span class="learning-icon">🔢</span>
+							<div>
+								<h3>Number Theory</h3>
+								<p>Investigating prime numbers, divisibility, and mathematical proofs</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="detail-card">
+					<h2>My Goals</h2>
+					<ul class="goals-list">
+						<li>Master calculus concepts before graduating high school</li>
+						<li>Participate in mathematics competitions and olympiads</li>
+						<li>Help other students understand and appreciate mathematics</li>
+						<li>Explore the connections between math and other sciences</li>
+						<li>Continue sharing my learning journey through this blog</li>
+					</ul>
+				</div>
+
+				<div class="detail-card">
+					<h2>Why I Blog</h2>
+					<p>
+						I started this blog to document my mathematical journey and share what I learn 
+						with others. Mathematics can seem intimidating, but I believe that with the right 
+						approach and explanation, anyone can understand and enjoy it.
+					</p>
+					<p>
+						Through my posts, I aim to break down complex concepts into digestible pieces, 
+						share problem-solving strategies, and hopefully inspire other young people to 
+						see the beauty in mathematics. Learning is always better when shared!
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="interests">
+		<div class="interests-container">
+			<h2 class="section-title">Beyond Mathematics</h2>
+			<div class="interests-grid">
+				<div class="interest-card">
+					<div class="interest-icon">🎮</div>
+					<h3>Logic Puzzles</h3>
+					<p>Solving Sudoku, chess problems, and brain teasers</p>
+				</div>
+				<div class="interest-card">
+					<div class="interest-icon">💻</div>
+					<h3>Programming</h3>
+					<p>Learning Python to solve mathematical problems computationally</p>
+				</div>
+				<div class="interest-card">
+					<div class="interest-icon">🔬</div>
+					<h3>Science</h3>
+					<p>Exploring physics and how math applies to the natural world</p>
+				</div>
+				<div class="interest-card">
+					<div class="interest-icon">📚</div>
+					<h3>Reading</h3>
+					<p>Enjoying books about mathematics, science, and problem-solving</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact-cta">
+		<div class="cta-container">
+			<h2>Let's Connect!</h2>
+			<p>Have a math question or want to discuss a problem? I'd love to hear from you!</p>
+			<a href="/contact" class="btn btn-primary">Get In Touch</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.about-hero {
+		padding: 4rem 0;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: 20px;
+		margin-bottom: 4rem;
+	}
+
+	.profile-section {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.profile-image {
+		display: flex;
+		justify-content: center;
+	}
+
+	.avatar {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+	}
+
+	.avatar-text {
+		font-size: 4rem;
+		font-weight: 700;
+		color: white;
+	}
+
+	.profile-name {
+		font-size: 3rem;
+		font-weight: 700;
+		color: white;
+		margin-bottom: 0.5rem;
+	}
+
+	.profile-tagline {
+		font-size: 1.3rem;
+		color: rgba(255, 255, 255, 0.8);
+		margin-bottom: 2rem;
+	}
+
+	.profile-stats {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.stat {
+		text-align: center;
+	}
+
+	.stat-number {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		color: #feca57;
+	}
+
+	.stat-label {
+		font-size: 0.9rem;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.about-details {
+		margin-bottom: 4rem;
+	}
+
+	.details-container, .interests-container, .cta-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.details-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: 2rem;
+	}
+
+	.detail-card {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2.5rem;
+		border-radius: 20px;
+	}
+
+	.detail-card h2 {
+		font-size: 1.8rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 1.5rem;
+	}
+
+	.detail-card p {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.7;
+		margin-bottom: 1rem;
+	}
+
+	.learning-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.learning-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.learning-icon {
+		font-size: 1.5rem;
+		flex-shrink: 0;
+	}
+
+	.learning-item h3 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 0.5rem;
+	}
+
+	.learning-item p {
+		margin: 0;
+		font-size: 0.95rem;
+	}
+
+	.goals-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.goals-list li {
+		color: rgba(255, 255, 255, 0.8);
+		padding: 0.5rem 0;
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.goals-list li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: #feca57;
+		font-weight: bold;
+	}
+
+	.interests {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: white;
+	}
+
+	.interests-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.interest-card {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		border-radius: 20px;
+		text-align: center;
+		transition: transform 0.3s ease;
+	}
+
+	.interest-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.interest-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.interest-card h3 {
+		font-size: 1.3rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.interest-card p {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.contact-cta {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: 20px;
+		padding: 4rem 2rem;
+		text-align: center;
+	}
+
+	.cta-container h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.cta-container p {
+		font-size: 1.2rem;
+		color: rgba(255, 255, 255, 0.8);
+		margin-bottom: 2rem;
+	}
+
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: 50px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		display: inline-block;
+	}
+
+	.btn-primary {
+		background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+		color: white;
+		box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+	}
+
+	@media (max-width: 768px) {
+		.profile-section {
+			grid-template-columns: 1fr;
+			text-align: center;
+			gap: 2rem;
+		}
+
+		.profile-name {
+			font-size: 2.5rem;
+		}
+
+		.profile-stats {
+			justify-content: center;
+		}
+
+		.details-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.detail-card {
+			padding: 2rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.avatar {
+			width: 120px;
+			height: 120px;
+		}
+
+		.avatar-text {
+			font-size: 3rem;
+		}
+	}
+</style>

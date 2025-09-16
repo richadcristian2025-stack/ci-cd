@@ -1,22 +1,393 @@
+---
+export interface Props {
+	title?: string;
+	description?: string;
+}
+
+// Type definitions
+declare global {
+  // Feather Icons
+  interface Window {
+    feather: {
+      replace: (options?: any) => void;
+    };
+    
+    // PWA Installation
+    deferredPrompt: BeforeInstallPromptEvent | null;
+  }
+  
+  // PWA Installation Prompt
+  interface BeforeInstallPromptEvent extends Event {
+    readonly platforms: string[];
+    readonly userChoice: Promise<{
+      outcome: 'accepted' | 'dismissed';
+      platform: string;
+    }>;
+    prompt(): Promise<void>;
+  }
+  
+  // Extend WindowEventMap for TypeScript
+  interface WindowEventMap {
+    beforeinstallprompt: BeforeInstallPromptEvent;
+  }
+}
+
+const { title = "Richard's Math Blog", description = "Personal blog of Richard, a 14-year-old math enthusiast" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+
+		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="alternate icon" href="/favicon.ico" />
+
+		<!-- Theme Color for Mobile Browsers -->
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111827" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/images/og-image.jpg" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/images/og-image.jpg" />
+
+		<!-- Preload Critical Resources -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Feather Icons -->
+		<script src="https://unpkg.com/feather-icons"></script>
+
+		<title>{title}</title>
+
+		<!-- PWA Manifest -->
+		<link rel="manifest" href="/manifest.json" />
+
+		<!-- Global CSS -->
+		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 	<body>
-		<slot />
+		<header class="bg-white dark:bg-gray-900 shadow-sm">
+			<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16">
+					<div class="flex items-center">
+						<a href="/" class="flex-shrink-0 flex items-center">
+							<span class="text-xl font-bold text-blue-600 dark:text-blue-400">Math Journey</span>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<div class="flex h-screen overflow-hidden">
+			<!-- Sidebar -->
+			<aside class="w-64 bg-gray-800 text-white p-6 hidden md:block">
+				<div class="flex items-center space-x-3 mb-8">
+					<div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-xl font-bold">M</div>
+					<span class="text-xl font-semibold">Math Journey</span>
+				</div>
+
+				<nav class="space-y-2">
+					<a href="/" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700">
+						<i data-feather="home" class="w-5 h-5"></i>
+						<span>Dashboard</span>
+					</a>
+					<a href="/lessons" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700">
+						<i data-feather="book" class="w-5 h-5"></i>
+						<span>Lessons</span>
+					</a>
+					<a href="/practice" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700">
+						<i data-feather="edit-3" class="w-5 h-5"></i>
+						<span>Practice</span>
+					</a>
+					<a href="/resources" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700">
+						<i data-feather="bookmark" class="w-5 h-5"></i>
+						<span>Resources</span>
+					</a>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="flex-1 overflow-y-auto p-6">
+				<slot />
+			</main>
+		</div>
+		<script>
+  // Initialize Feather Icons
+  document.addEventListener('astro:page-load', () => {
+    if (window.feather) {
+      window.feather.replace();
+    }
+  });
+
+  // Initialize dark mode from localStorage
+  if (typeof window !== 'undefined') {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+    
+    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+</script>
+
+		<footer class="bg-gray-100 dark:bg-gray-800 py-6 mt-auto">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center text-gray-600 dark:text-gray-400 text-sm">
+					<p>&copy; {new Date().getFullYear()} Math Journey. All rights reserved.</p>
+					<p class="mt-1">Exploring the beauty of mathematics, one concept at a time</p>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			const hamburger = document.getElementById('hamburger');
+			const navMenu = document.querySelector('.nav-menu');
+
+			hamburger?.addEventListener('click', () => {
+				hamburger.classList.toggle('active');
+				navMenu?.classList.toggle('active');
+			});
+		</script>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<style is:global>
+	* {
 		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		line-height: 1.6;
+		color: #333;
+	}
+
+	body {
+		background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #96ceb4 75%, #feca57 100%);
+		background-size: 400% 400%;
+		animation: gradientShift 15s ease infinite;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	@keyframes gradientShift {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	.header {
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+	}
+
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 70px;
+	}
+
+	.logo {
+		text-decoration: none;
+		color: #333;
+	}
+
+	.logo-text {
+		font-size: 1.8rem;
+		font-weight: 700;
+		background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.animated-logo {
+		animation: logoGlow 3s ease-in-out infinite alternate;
+		position: relative;
+		display: inline-block;
+	}
+
+	.animated-logo::before {
+		content: '';
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+		border-radius: 8px;
+		opacity: 0;
+		z-index: -1;
+		animation: logoHalo 4s ease-in-out infinite;
+	}
+
+	@keyframes logoGlow {
+		0% {
+			filter: brightness(1) saturate(1);
+			transform: scale(1);
+		}
+		100% {
+			filter: brightness(1.2) saturate(1.3);
+			transform: scale(1.05);
+		}
+	}
+
+	@keyframes logoHalo {
+		0%, 100% {
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		50% {
+			opacity: 0.3;
+			transform: scale(1.1);
+		}
+	}
+
+	.nav-menu {
+		display: flex;
+		list-style: none;
+		gap: 2rem;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		color: #333;
+		font-weight: 500;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+
+	.nav-link:hover {
+		color: #667eea;
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 2px;
+		bottom: -5px;
+		left: 0;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		transition: width 0.3s ease;
+	}
+
+	.nav-link:hover::after {
 		width: 100%;
-		height: 100%;
+	}
+
+	.hamburger {
+		display: none;
+		flex-direction: column;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		width: 30px;
+		height: 30px;
+		justify-content: space-around;
+	}
+
+	.hamburger span {
+		width: 100%;
+		height: 3px;
+		background: #333;
+		transition: 0.3s;
+		transform-origin: center;
+	}
+
+	.hamburger.active span:nth-child(1) {
+		transform: rotate(45deg) translate(8px, 8px);
+	}
+
+	.hamburger.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.hamburger.active span:nth-child(3) {
+		transform: rotate(-45deg) translate(8px, -8px);
+	}
+
+	.main {
+		flex: 1;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+		width: 100%;
+	}
+
+	.footer {
+		background: rgba(0, 0, 0, 0.8);
+		color: white;
+		text-align: center;
+		padding: 2rem;
+		margin-top: auto;
+	}
+
+	.footer-content p {
+		margin: 0.5rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.nav-menu {
+			position: fixed;
+			left: -100%;
+			top: 70px;
+			flex-direction: column;
+			background: rgba(255, 255, 255, 0.95);
+			backdrop-filter: blur(10px);
+			width: 100%;
+			text-align: center;
+			transition: 0.3s;
+			padding: 2rem 0;
+			gap: 1rem;
+		}
+
+		.nav-menu.active {
+			left: 0;
+		}
+
+		.hamburger {
+			display: flex;
+		}
+
+		.main {
+			padding: 1rem;
+		}
 	}
 </style>

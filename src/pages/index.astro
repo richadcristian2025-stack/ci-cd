@@ -1,11 +1,384 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const cards = [
+  {
+    title: 'Limits',
+    description: 'Understanding the behavior of functions as they approach specific points',
+    icon: 'activity',
+    color: 'bg-blue-500',
+    lessons: 5
+  },
+  {
+    title: 'Derivatives',
+    description: 'Exploring rates of change and tangent lines',
+    icon: 'trending-up',
+    color: 'bg-green-500',
+    lessons: 4
+  },
+  {
+    title: 'Integrals',
+    description: 'Understanding accumulation and area under curves',
+    icon: 'layers',
+    color: 'bg-purple-500',
+    lessons: 3
+  },
+  {
+    title: 'Series',
+    description: 'Working with infinite sequences and series',
+    icon: 'bar-chart-2',
+    color: 'bg-yellow-500',
+    lessons: 2
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Dashboard" description="Your calculus learning dashboard">
+	<div class="max-w-7xl mx-auto">
+		<header class="mb-8">
+			<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+			<p class="text-gray-600 dark:text-gray-400">Welcome back, Richard!</p>
+		</header>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+			{cards.map(card => (
+				<div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+					<div class={`h-2 ${card.color}`}></div>
+					<div class="p-6">
+						<div class="flex items-center justify-between mb-4">
+							<div class={`p-3 rounded-lg ${card.color} bg-opacity-10`}>
+								<i data-feather={card.icon} class={`w-6 h-6 ${card.color.replace('bg-', 'text-')}`}></i>
+							</div>
+							<span class="text-sm font-medium text-gray-500 dark:text-gray-400">{card.lessons} lessons</span>
+						</div>
+						<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{card.title}</h3>
+						<p class="text-gray-600 dark:text-gray-400 text-sm">{card.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
 </Layout>
+
+<style>
+	/* Modern card styles */
+	.bg-white {
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.bg-white:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	}
+
+	.hero-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.highlight {
+		background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.animated-title {
+		animation: titlePulse 2s ease-in-out infinite alternate;
+		display: inline-block;
+	}
+
+	@keyframes titlePulse {
+		0% {
+			transform: scale(1);
+			filter: brightness(1);
+		}
+		100% {
+			transform: scale(1.1);
+			filter: brightness(1.3);
+		}
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 1.5rem;
+		font-weight: 500;
+	}
+
+	.hero-description {
+		font-size: 1.1rem;
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.7;
+		margin-bottom: 2rem;
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: 50px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		display: inline-block;
+	}
+
+	.btn-primary {
+		background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+		color: white;
+		box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+	}
+
+	.btn-secondary {
+		background: rgba(255, 255, 255, 0.2);
+		color: white;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+	}
+
+	.btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.hero-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.icona-animation {
+		position: relative;
+		width: 300px;
+		height: 300px;
+	}
+
+	.floating-icon {
+		position: absolute;
+		background: rgba(255, 255, 255, 0.15);
+		backdrop-filter: blur(10px);
+		padding: 1rem;
+		border-radius: 50%;
+		color: white;
+		font-size: 2rem;
+		animation: iconFloat 4s ease-in-out infinite;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.floating-icon:nth-child(1) {
+		top: 10%;
+		left: 20%;
+		animation-delay: 0s;
+	}
+
+	.floating-icon:nth-child(2) {
+		top: 20%;
+		right: 10%;
+		animation-delay: 0.7s;
+	}
+
+	.floating-icon:nth-child(3) {
+		top: 50%;
+		left: 5%;
+		animation-delay: 1.4s;
+	}
+
+	.floating-icon:nth-child(4) {
+		bottom: 30%;
+		right: 20%;
+		animation-delay: 2.1s;
+	}
+
+	.floating-icon:nth-child(5) {
+		bottom: 10%;
+		left: 30%;
+		animation-delay: 2.8s;
+	}
+
+	.floating-icon:nth-child(6) {
+		top: 40%;
+		right: 30%;
+		animation-delay: 3.5s;
+	}
+
+	@keyframes iconFloat {
+		0%, 100% { 
+			transform: translateY(0px) rotate(0deg) scale(1);
+			opacity: 0.8;
+		}
+		25% { 
+			transform: translateY(-15px) rotate(5deg) scale(1.1);
+			opacity: 1;
+		}
+		50% { 
+			transform: translateY(-25px) rotate(-3deg) scale(1.05);
+			opacity: 0.9;
+		}
+		75% { 
+			transform: translateY(-10px) rotate(2deg) scale(1.08);
+			opacity: 1;
+		}
+	}
+
+	.features {
+		margin-bottom: 4rem;
+	}
+
+	.features-container, .posts-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 3rem;
+		color: white;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.feature-card {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		border-radius: 20px;
+		text-align: center;
+		transition: transform 0.3s ease;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.feature-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.feature-card h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.feature-card p {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+	}
+
+	.recent-posts {
+		margin-bottom: 4rem;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.post-card {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		padding: 2rem;
+		border-radius: 20px;
+		transition: transform 0.3s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.post-date {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+		margin-bottom: 1rem;
+	}
+
+	.post-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.post-excerpt {
+		color: rgba(255, 255, 255, 0.8);
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+	}
+
+	.post-link {
+		color: #4ecdc4;
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.3s ease;
+	}
+
+	.post-link:hover {
+		color: #ff6b6b;
+	}
+
+	.posts-cta {
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.hero-content {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.2rem;
+		}
+
+		.math-animation {
+			width: 250px;
+			height: 250px;
+		}
+
+		.equation {
+			font-size: 1rem;
+			padding: 0.8rem 1.2rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.hero-buttons {
+			justify-content: center;
+		}
+	}
+</style>

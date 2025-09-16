@@ -1,0 +1,585 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<!-- Add AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<Layout title="Richard's Math Blog" description="Personal blog of Richard, a 14-year-old math enthusiast">
+  <!-- Add Anime.js and AOS scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script is:inline>
+    document.addEventListener('astro:page-load', () => {
+      // Initialize AOS
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true
+        });
+      }
+
+      // Hero animation
+      if (typeof anime !== 'undefined') {
+        // Title animation
+        anime({
+          targets: '#main-title',
+          translateY: [50, 0],
+          opacity: [0, 1],
+          easing: 'easeOutExpo',
+          duration: 1000
+        });
+
+        // Subtitle animation
+        anime({
+          targets: '#subtitle',
+          translateY: [20, 0],
+          opacity: [0, 1],
+          easing: 'easeOutExpo',
+          duration: 1000,
+          delay: 300
+        });
+
+        // CTA buttons animation
+        anime({
+          targets: '.cta-buttons',
+          scale: [0.9, 1],
+          opacity: [0, 1],
+          easing: 'spring(1, 80, 10, 0)',
+          delay: 600
+        });
+
+        // Floating animation for hero image
+        anime({
+          targets: '#hero-image',
+          translateY: ['-10px', '10px'],
+          easing: 'easeInOutSine',
+          duration: 3000,
+          direction: 'alternate',
+          loop: true
+        });
+      }
+    });
+  </script>
+
+  <div class="main-container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1 class="title" id="main-title">My <span class="highlight">Calculus</span> Journey</h1>
+        <p class="subtitle" id="subtitle">Exploring the World of Limits and Derivatives</p>
+        <div class="cta-buttons">
+          <a href="#materials" class="btn primary">Explore Materials</a>
+          <a href="#about" class="btn secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image" id="hero-image">
+        <img src="/images/classroom.svg" alt="Interactive Learning" />
+      </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <h2 class="section-title">Why Choose ICONA?</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up">
+          <div class="feature-icon">📚</div>
+          <h3>Comprehensive Materials</h3>
+          <p>Access a wide range of educational resources and study materials.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon">👩‍🏫</div>
+          <h3>Expert Instructors</h3>
+          <p>Learn from experienced educators passionate about your success.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon">💡</div>
+          <h3>Interactive Learning</h3>
+          <p>Engage with interactive content and collaborative tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="materials" id="materials">
+      <h2 class="section-title">Course Materials</h2>
+      <div class="materials-grid">
+        <div class="material-card" data-aos="fade-up">
+          <div class="material-icon">📚</div>
+          <h3>Mathematics</h3>
+          <p>Explore our comprehensive math resources and practice problems.</p>
+          <a href="/materials/math" class="btn primary">View Materials</a>
+        </div>
+        <div class="material-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="material-icon">🔬</div>
+          <h3>Science</h3>
+          <p>Discover interactive science experiments and learning materials.</p>
+          <a href="/materials/science" class="btn primary">View Materials</a>
+        </div>
+        <div class="material-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="material-icon">🌍</div>
+          <h3>Social Studies</h3>
+          <p>Learn about history, geography, and cultures around the world.</p>
+          <a href="/materials/social-studies" class="btn primary">View Materials</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <div class="about-text" data-aos="fade-right">
+          <h2>About ICONA Class</h2>
+          <p>ICONA Class is a leading educational platform dedicated to providing high-quality learning resources for students of all ages. Our mission is to make education accessible, engaging, and effective through innovative teaching methods and technology.</p>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Courses</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image" data-aos="fade-left">
+          <img src="/images/classroom-illustration.svg" alt="ICONA Class Learning" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#materials">Materials</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: info@iconaclass.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">FB</a>
+          <a href="#" class="social-icon">TW</a>
+          <a href="#" class="social-icon">IG</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ICONA Class. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  :root {
+    --primary: #4a6cf7;
+    --primary-dark: #3a5bd9;
+    --secondary: #6c757d;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gradient: linear-gradient(135deg, #4a6cf7 0%, #6c5ce7 100%);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    padding: 4rem 0;
+  }
+
+  .hero-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+  }
+
+  .highlight {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    opacity: 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    opacity: 0;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn.primary {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+  }
+
+  .btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 108, 247, 0.4);
+  }
+
+  .btn.secondary {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+
+  .btn.secondary:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Features Section */
+  .features {
+    padding: 6rem 0;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card p {
+    color: var(--secondary);
+  }
+
+  /* Materials Section */
+  .materials {
+    padding: 6rem 0;
+  }
+
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .material-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .material-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .material-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .material-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .material-card p {
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  /* About Section */
+  .about {
+    padding: 6rem 0;
+    background: #f8f9fa;
+  }
+
+  .about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .about-text {
+    flex: 1;
+  }
+
+  .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+  }
+
+  .stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: var(--secondary);
+  }
+
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Footer */
+  .site-footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 4rem 0 0;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-section a {
+    color: #b8c1ec;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: white;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .social-icon:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero-content {
+      margin-bottom: 3rem;
+    }
+
+    .cta-buttons {
+      justify-content: center;
+    }
+
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .stats {
+      justify-content: center;
+    }
+
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .title {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .stats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>
