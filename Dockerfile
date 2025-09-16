@@ -1,19 +1,31 @@
-FROM node:18-alpine AS builder
+# Stage build
+FROM node:18 AS builder
+
+# Set working directory
 WORKDIR /app
 
+# Copy package.json dan package-lock.json
 COPY package*.json ./
-RUN npm install
 
+# Install dependencies sesuai lockfile
+RUN npm ci
+
+# Copy seluruh source code
 COPY . .
-# Add execute permissions to node_modules/.bin/astro
-RUN chmod +x node_modules/.bin/astro && npm run build
 
-# Production stage
-FROM node:18-alpine AS production
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-RUN npm install --only=production
+# Build Astro
+ENV NODE_ENV=production
 
-EXPOSE 3000
-CMD ["npm", "start"]
+RUN npm run build
+
+
+# Stage serve dengan Nginx (lebih ringan & cepat)
+FROM nginx:alpine
+
+# Copy hasil build dari builder
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose port
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
