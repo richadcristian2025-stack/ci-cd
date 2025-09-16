@@ -10,7 +10,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: build image
-        run: docker build ./astro -t richachristian/docker:latest
+        working-directory: ./astro
+        run: docker build . -t richachristian/docker:latest
       - name: push image to docker hub
         run: |
           docker login -u richachristian -p ${{secrets.DOCKER_HUB_TOKEN}}
