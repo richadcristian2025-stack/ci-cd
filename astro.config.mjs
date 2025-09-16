@@ -4,8 +4,6 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://richadcristian2025-stack.github.io/ci-cd',
-  base: '/ci-cd',
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -22,5 +20,7 @@ export default defineConfig({
         external: ['/sw.js', '/manifest.json']
       }
     }
-  }
+  },
+  // Enable View Transitions API
+  // Note: Removed experimental.viewTransitions as it's not a valid option
 });
