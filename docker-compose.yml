@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  joseblog:
+    container_name: joseblog
+    image: joseaugustonerotou/astro-blog:latest
+    command: sh -c "npm run dev"
+    ports:
+      - "4321:4321"
+    restart: unless-stopped

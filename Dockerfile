@@ -1,27 +1,22 @@
-# Stage build
-FROM node:18 AS builder
+FROM node:18
+
 WORKDIR /app
 
-# Copy package.json dan lockfile
+# install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++
+
+# install dependencies
 COPY package*.json ./
+RUN npm install
 
-# Install semua dependencies, termasuk devDependencies
-RUN npm ci --include=dev
-
-# Copy seluruh source code
+# copy source code
 COPY . .
 
-# Build Astro
-RUN npm run build
+# expose port
+EXPOSE 4321
 
-# Stage serve pakai Node.js
-FROM node:18-alpine
-WORKDIR /app
-
-# Install serve untuk hosting hasil build
-RUN npm install -g serve
-
-COPY --from=builder /app/dist ./dist
-
-EXPOSE 3000
-CMD ["serve", "-s", "dist", "-l", "3000"]
+# start astro dev server
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "4321"]
