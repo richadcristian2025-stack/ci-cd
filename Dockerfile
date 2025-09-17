@@ -4,22 +4,23 @@ WORKDIR /app
 
 # Copy package.json dan lockfile
 COPY package*.json ./
+
+# Install semua dependencies, termasuk devDependencies
 RUN npm ci --include=dev
 
-# Copy seluruh source
+# Copy seluruh source code
 COPY . .
 
 # Build Astro
 RUN npm run build
 
-# Stage run
+# Stage serve pakai Node.js
 FROM node:18-alpine
 WORKDIR /app
 
-# Install serve untuk static hosting
+# Install serve untuk hosting hasil build
 RUN npm install -g serve
 
-# Copy hasil build
 COPY --from=builder /app/dist ./dist
 
 EXPOSE 3000
